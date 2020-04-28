@@ -1,6 +1,12 @@
 # 基于mybatis-plus的springboot代码生成器
 
-## 使用方法
+## 一、特性
+- 实现controller restful风格CURD接口
+- service层CURD对IService的方法再次封装，方便添加业务逻辑
+- serviceImpl中方法实现执行debug日志打印
+- mapper模板在官方模板基础上加入@mapper注解
+- 各模板方法添加Javadoc注释
+## 二、使用方法
 
 - 修改application.properties配置文件，设置数据库信息
 ```
@@ -13,7 +19,7 @@ spring.datasource.password=
 - 运行CodeGenerator类，输入数据库表名
 - 查看生成的代码
 
-## 生成的代码示例
+## 三、生成的代码示例
 
 ### 1.Controller模板代码示例
 ```java
