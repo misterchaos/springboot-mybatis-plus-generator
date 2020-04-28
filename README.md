@@ -6,6 +6,7 @@
 - serviceImpl中方法实现执行debug日志打印
 - mapper模板在官方模板基础上加入@mapper注解
 - 各模板方法添加Javadoc注释
+- 实现分页查询，关键词模糊查询
 ## 二、使用方法
 
 - 修改application.properties配置文件，设置数据库信息
