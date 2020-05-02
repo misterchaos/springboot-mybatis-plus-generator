@@ -17,7 +17,7 @@ spring.datasource.url=jdbc:mysql://localhost:3306/flower?useUnicode=true&charact
 spring.datasource.username=root
 spring.datasource.password=
 ```
-- 运行CodeGenerator类，输入Authore，输入数据库表名
+- 运行CodeGenerator类，输入Author，输入数据库表名
 - 查看生成的代码
 
 ## 三、生成的代码示例
