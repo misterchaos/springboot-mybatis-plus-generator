@@ -18,7 +18,7 @@ spring.datasource.username=root
 spring.datasource.password=
 ```
 - 运行CodeGenerator类，输入Author，输入数据库表名
-- 查看生成的代码
+- 运行SpringbootMybatisPlusGeneratorApplication,测试接口
 
 ## 三、生成的代码示例
 
