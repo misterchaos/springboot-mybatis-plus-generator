@@ -16,9 +16,12 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/flower?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
 spring.datasource.username=root
 spring.datasource.password=
-```
+``` 
 - 运行CodeGenerator类，输入Author，输入数据库表名
 - 运行SpringbootMybatisPlusGeneratorApplication,测试接口
+
+> 注意：数据库表必须符合以下规范<br>
+> 每张表的主键命名为 表名_id 如: user_id
 
 ## 三、生成的代码示例
 
