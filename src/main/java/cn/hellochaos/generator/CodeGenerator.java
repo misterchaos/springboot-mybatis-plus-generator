@@ -19,9 +19,18 @@ import java.util.Scanner;
 @Data
 public class CodeGenerator {
 
+    /**
+     * 配置文件名
+     */
     private final static String APP_PROPERTY = "application.properties";
     private String projectPath = System.getProperty("user.dir");
+    /**
+     * 公共包路径
+     */
     private String parentPackage = "cn.hellochaos";
+    /**
+     * 模块名
+     */
     private String module = "generator";
 
     /**
@@ -66,7 +75,7 @@ public class CodeGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setAuthor("chaos");
+        gc.setAuthor(scanner("Author"));
         gc.setOpen(false);
         gc.setActiveRecord(true);
         gc.setIdType(IdType.AUTO);
