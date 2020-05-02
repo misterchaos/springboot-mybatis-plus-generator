@@ -1,13 +1,30 @@
 # 基于mybatis-plus的springboot代码生成器
 
-## 一、特性
+
+
+[![release](https://img.shields.io/badge/release-1.0.0-green)](https://github.com/misterchaos/springboot-mybatis-plus-generator)
+[![release](https://img.shields.io/badge/version-beta-orange)](https://github.com/misterchaos/springboot-mybatis-plus-generator/releases)
+[![release](https://img.shields.io/badge/build-passing-green)](https://github.com/misterchaos/springboot-mybatis-plus-generator/releases)
+![](https://img.shields.io/badge/license-Apache-blue)
+
+
+## :star:Features
+
 - 实现controller restful风格CURD接口
 - service层CURD对IService的方法再次封装，方便添加业务逻辑
-- serviceImpl中方法实现执行debug日志打印
+- serviceImpl中方法实现执行日志打印
 - mapper模板在官方模板基础上加入@mapper注解
 - 各模板方法添加Javadoc注释
-- 实现分页查询，关键词模糊查询
-## 二、使用方法
+- 实现分页查询，关键词模糊查询（需自定义字段）
+## :point_right:Quick Start
+
+**动画演示**：
+
+![](https://raw.githubusercontent.com/misterchaos/img/master/image/20200502135628.gif)
+
+
+
+**使用步骤：**
 
 - 修改application.properties配置文件，设置数据库信息
 ```
@@ -16,14 +33,14 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/flower?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
 spring.datasource.username=root
 spring.datasource.password=
-``` 
+```
 - 运行CodeGenerator类，输入Author，输入数据库表名
 - 运行SpringbootMybatisPlusGeneratorApplication,测试接口
 
 > 注意：数据库表必须符合以下规范<br>
 > 每张表的主键命名为 表名_id 如: user_id
 
-## 三、生成的代码示例
+## :bulb:Examples
 
 ### 1.Controller模板代码示例
 ```java
