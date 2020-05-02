@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration后面的status，这个用于设置log4j2自身内部的信息输出，可以不设置，当设置成trace时，
+    你会看到log4j2内部各种详细输出。可以设置成OFF(关闭) 或 Error(只输出错误信息)。
+    30s 刷新此配置
+-->
+<configuration status="WARN" monitorInterval="30">
+    <!-- 日志文件目录、压缩文件目录、日志格式配置 -->
+    <properties>
+        <Property name="filePath">/www/webLogs/Generator</Property>
+        <Property name="fileGz">/www/webLogs/Generator/web_gz</Property>
+        <Property name="PID">????</Property>
+        <Property name="LOG_PATTERN">%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{[%5p]} %clr{${sys:PID}}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n%xwEx</Property>
+    </properties>
+    <Appenders>
+        <!-- 输出控制台日志的配置 -->
+        <Console name="console" target="SYSTEM_OUT">
+            <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <!-- 输出日志的格式 -->
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+        <RollingRandomAccessFile name="infoFile" fileName="${filePath}/runLog.log" immediateFlush="true"
+                                 filePattern="${fileGz}/$${date:yyyy-MM}/%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%5p] ${sys:PID} --- [%15.15t] {%-40.40c{1.}} : %m%n%xwEx"/>
+
+            <!-- 打印出info级别以上 ERROR级别以下的信息-->
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="info"  onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+                <!--<SizeBasedTriggeringPolicy size="20 MB"/>-->
+            </Policies>
+            <DefaultRolloverStrategy max="180"/>
+        </RollingRandomAccessFile>
+
+
+        <!-- 存储所有error信息 -->
+        <RollingRandomAccessFile name="errorFile" fileName="${filePath}/errorLog.log" immediateFlush="true"
+                                 filePattern="${fileGz}/$${date:yyyy-MM}/%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%5p] ${sys:PID} --- [%15.15t] {%-40.40c{1.}} : %m%n%xwEx"/>
+
+            <Filters>
+                <!-- 记录warn级别以上信息 -->
+                <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+                <!--<SizeBasedTriggeringPolicy size="20 MB"/>-->
+            </Policies>
+            <DefaultRolloverStrategy max="180"/>
+        </RollingRandomAccessFile>
+
+    </Appenders>
+
+    <!-- Mixed sync/async -->
+    <Loggers>
+        <Root level="info" includeLocation="true">
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="infoFile"/>
+            <AppenderRef ref="errorFile"/>
+        </Root>
+        <AsyncLogger name="Async" level="info" includeLocation="true">
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="infoFile"/>
+            <AppenderRef ref="errorFile"/>
+        </AsyncLogger>
+    </Loggers>
+
+</configuration>

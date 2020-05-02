@@ -17,8 +17,8 @@ import ${superControllerClassPackage};
 
 /**
  * <p>
-    * ${table.comment!} 前端控制器
-    * </p>
+ * ${table.comment!} 前端控制器
+ * </p>
  *
  * @author ${author}
  * @since ${date}
@@ -49,7 +49,7 @@ public class ${table.controllerName} {
     public ResultBean<?> listByPage(@RequestParam(name = "page", defaultValue = "1") int page,
                                     @RequestParam(name = "pageSize", defaultValue = "10") int pageSize,
                                     @RequestParam String keyword) {
-        return new ResultBean<>(${table.serviceName?uncap_first}.listByPage(page, pageSize,keyword));
+        return new ResultBean<>(${table.serviceName?uncap_first}.list${entity}sByPage(page, pageSize,keyword));
     }
 
 
@@ -58,7 +58,7 @@ public class ${table.controllerName} {
     */
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     public ResultBean<?> getById(@PathVariable("id") Integer id) {
-        return new ResultBean<>(${table.serviceName?uncap_first}.getById(id));
+        return new ResultBean<>(${table.serviceName?uncap_first}.get${entity}ById(id));
     }
 
     /**
@@ -66,7 +66,7 @@ public class ${table.controllerName} {
     */
     @RequestMapping(method = RequestMethod.POST)
     public ResultBean<?> insert(@RequestBody ${entity} ${entity?uncap_first}) {
-        return new ResultBean<>(${table.serviceName?uncap_first}.insert(${entity?uncap_first}));
+        return new ResultBean<>(${table.serviceName?uncap_first}.insert${entity}(${entity?uncap_first}));
     }
 
     /**
@@ -74,7 +74,7 @@ public class ${table.controllerName} {
     */
     @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
     public ResultBean<?> deleteById(@PathVariable("id") Integer id) {
-        return new ResultBean<>(${table.serviceName?uncap_first}.deleteById(id));
+        return new ResultBean<>(${table.serviceName?uncap_first}.delete${entity}ById(id));
     }
 
     /**
@@ -82,7 +82,7 @@ public class ${table.controllerName} {
     */
     @RequestMapping(method = RequestMethod.PUT)
     public ResultBean<?> updateById(@RequestBody ${entity} ${entity?uncap_first}) {
-        return new ResultBean<>(${table.serviceName?uncap_first}.update(${entity?uncap_first}));
+        return new ResultBean<>(${table.serviceName?uncap_first}.update${entity}(${entity?uncap_first}));
     }
 }
 </#if>
