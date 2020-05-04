@@ -48,8 +48,8 @@ public class ${table.controllerName} {
     @RequestMapping(method = RequestMethod.GET)
     public ResultBean<?> listByPage(@RequestParam(name = "page", defaultValue = "1") int page,
                                     @RequestParam(name = "pageSize", defaultValue = "10") int pageSize,
-                                    @RequestParam String keyword) {
-        return new ResultBean<>(${table.serviceName?uncap_first}.list${entity}sByPage(page, pageSize,keyword));
+                                    @RequestParam(name = "factor", defaultValue = "") String factor) {
+        return new ResultBean<>(${table.serviceName?uncap_first}.list${entity}sByPage(page, pageSize,factor));
     }
 
 

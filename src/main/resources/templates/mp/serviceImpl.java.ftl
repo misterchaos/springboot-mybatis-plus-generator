@@ -28,9 +28,9 @@ import cn.hellochaos.generator.exception.bizException.BizException;
 public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.mapperName}, ${entity}> implements ${table.serviceName} {
 
     @Override
-    public Page<${entity}> list${entity}sByPage(int page, int pageSize, String keyword) {
-        log.info("正在执行分页查询${entity?uncap_first}: page = {} pageSize = {} keyword = {}",page,pageSize,keyword);
-        QueryWrapper<${entity}> queryWrapper =  new QueryWrapper<${entity}>().like("", keyword);
+    public Page<${entity}> list${entity}sByPage(int page, int pageSize, String factor) {
+        log.info("正在执行分页查询${entity?uncap_first}: page = {} pageSize = {} factor = {}",page,pageSize,factor);
+        QueryWrapper<${entity}> queryWrapper =  new QueryWrapper<${entity}>().like("", factor);
         //TODO 这里需要自定义用于匹配的字段,并把wrapper传入下面的page方法
         Page<${entity}> result = super.page(new Page<>(page, pageSize));
         log.info("分页查询${entity?uncap_first}完毕: 结果数 = {} ",result.getRecords().size());

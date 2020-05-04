@@ -22,12 +22,12 @@ public interface ${table.serviceName} {
     *
     * @param page     当前页数
     * @param pageSize 页的大小
-    * @param keyword  搜索关键词
+    * @param factor  搜索关键词
     * @return 返回mybatis-plus的Page对象,其中records字段为符合条件的查询结果
     * @author ${author}
     * @since ${date}
     */
-    Page<${entity}> list${entity}sByPage(int page, int pageSize, String keyword);
+    Page<${entity}> list${entity}sByPage(int page, int pageSize, String factor);
 
     /**
     * 根据id查询${entity}
