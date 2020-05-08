@@ -13,6 +13,7 @@ import org.apache.ibatis.annotations.Mapper;
 * @since ${date}
 */
 @Mapper
+@Repository
 <#if kotlin>
     interface ${table.mapperName} : ${superMapperClass}<${entity}>
 <#else>
