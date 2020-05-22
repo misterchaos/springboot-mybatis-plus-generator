@@ -7,6 +7,19 @@
 [![release](https://img.shields.io/badge/build-passing-green)](https://github.com/misterchaos/springboot-mybatis-plus-generator/releases)
 ![](https://img.shields.io/badge/license-Apache-blue)
 
+## :droplet:Overview
+
+这是一个基于mybatis-plus官方的AutoGenerator代码生成器+定制代码模板的[springboot代码生成器](https://github.com/misterchaos/springboot-mybatis-plus-generator)。
+
+**使用这个生成器你可以在1分钟之内生成数据库表对应的实体类，以及Mapper，Service，Controller层的基本CURD代码，并可以立即运行测试接口。**
+
+如果你不了解什么是mybatis-plus，请参考[官方文档](https://mp.baomidou.com/)
+
+本代码生成器具有以下优点：
+
+- 只需三步，即可开始测试CURD接口
+- 生成的代码风格良好，注释详细（遵循阿里巴巴开发规范）
+- 带有程序执行日志打印和错误日志打印
 
 ## :star:Features
 
