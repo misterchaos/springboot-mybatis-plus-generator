@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableTransactionManagement
 @Configuration
-@MapperScan("cn.hellochaos.generator.mapper")
 public class MybatisPlusConfig {
 
     @Bean
