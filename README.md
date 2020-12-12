@@ -7,6 +7,8 @@
 [![release](https://img.shields.io/badge/build-passing-green)](https://github.com/misterchaos/springboot-mybatis-plus-generator/releases)
 ![](https://img.shields.io/badge/license-Apache-blue)
 
+[![Stargazers over time](https://starchart.cc/misterchaos/springboot-mybatis-plus-generator.svg)](https://starchart.cc/misterchaos/springboot-mybatis-plus-generator)
+
 ## :droplet:Overview
 
 这是一个基于mybatis-plus官方的AutoGenerator代码生成器+定制代码模板的[springboot代码生成器](https://github.com/misterchaos/springboot-mybatis-plus-generator)。
