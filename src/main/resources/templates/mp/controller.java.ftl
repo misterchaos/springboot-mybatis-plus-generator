@@ -14,6 +14,8 @@ import org.springframework.stereotype.Controller;
 <#if superControllerClassPackage??>
 import ${superControllerClassPackage};
 </#if>
+import javax.annotation.Resource;
+
 
 /**
  * <p>
@@ -39,7 +41,7 @@ public class ${table.controllerName} extends ${superControllerClass} {
 public class ${table.controllerName} {
     </#if>
 
-    @Autowired
+    @Resource
     private ${table.serviceName} ${table.serviceName?uncap_first};
 
     /**
