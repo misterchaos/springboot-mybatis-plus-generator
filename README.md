@@ -41,7 +41,7 @@
 
 **使用步骤：**
 
-- 修改application.properties配置文件，设置数据库信息
+- 修改`src/main/resources/application.properties`配置文件(自行创建)，设置数据库信息
 ```
 #DataSource Config
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
@@ -49,8 +49,8 @@ spring.datasource.url=jdbc:mysql://localhost:3306/flower?useUnicode=true&charact
 spring.datasource.username=root
 spring.datasource.password=
 ```
-- 运行CodeGenerator类，输入Author，输入数据库表名
-- 运行SpringbootMybatisPlusGeneratorApplication,测试接口
+- 运行`CodeGenerator`类，输入Author，输入数据库表名
+- 运行`SpringbootMybatisPlusGeneratorApplication`,测试接口
 
 > 注意：数据库表必须符合以下规范<br>
 > 每张表的主键命名为 表名_id 如: user_id
